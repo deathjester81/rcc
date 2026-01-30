@@ -35,7 +35,14 @@ export default function NextSteps({ nextSteps, showContactButton = false }: Next
               {nextSteps}
             </p>
             {showContactButton && (
-              <ContactButton className="bg-white text-rcc-navy hover:bg-rcc-blue hover:text-white" />
+              <a
+                href="https://r-c-c.ch/termin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 !bg-rcc-blue text-white font-bold rounded-xl hover:bg-rcc-navy transition-all duration-300 shadow-lg hover:shadow-rcc-blue/20 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Kontakt aufnehmen
+              </a>
             )}
           </div>
         </div>

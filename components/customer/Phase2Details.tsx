@@ -30,18 +30,8 @@ export default function Phase2Details({ elements, customerId }: Phase2DetailsPro
           const Icon = icons[element.id as keyof typeof icons] || ListChecks;
           const isLarge = index === 0 || index === 3;
 
-          const content = (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`h-full glass-card group relative overflow-hidden p-8 ${
-                element.status === 'completed' 
-                  ? 'border-green-500/20 bg-green-50/30' 
-                  : 'bg-white/50'
-              } ${element.isLink ? 'cursor-pointer hover:bg-white/80' : ''}`}
-            >
+          const cardContent = (
+            <>
               {/* Glow Effect */}
               <div className={`absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-10 transition-opacity group-hover:opacity-20 ${
                 element.status === 'completed' ? 'bg-green-500' : 'bg-rcc-blue'
@@ -85,6 +75,22 @@ export default function Phase2Details({ elements, customerId }: Phase2DetailsPro
                   </div>
                 )}
               </div>
+            </>
+          );
+
+          const cardWrapper = (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`h-full glass-card group relative overflow-hidden p-8 ${
+                element.status === 'completed' 
+                  ? 'border-green-500/20 bg-green-50/30' 
+                  : 'bg-white/50'
+              } ${element.isLink ? 'cursor-pointer hover:bg-white/80' : ''}`}
+            >
+              {cardContent}
             </motion.div>
           );
 
@@ -100,9 +106,9 @@ export default function Phase2Details({ elements, customerId }: Phase2DetailsPro
             >
               {element.isLink && element.linkPath ? (
                 <Link href={element.linkPath} className="h-full block">
-                  {content}
+                  {cardWrapper}
                 </Link>
-              ) : content}
+              ) : cardWrapper}
             </div>
           );
         })}

@@ -1,5 +1,9 @@
+'use client';
+
 import { Customer } from '@/types';
 import StatusBadge from '@/components/shared/StatusBadge';
+import { motion } from 'framer-motion';
+import { Building2, MapPin } from 'lucide-react';
 
 interface CustomerHeaderProps {
   customer: Customer;
@@ -7,25 +11,44 @@ interface CustomerHeaderProps {
 
 export default function CustomerHeader({ customer }: CustomerHeaderProps) {
   return (
-    <div className="bg-white rounded-lg p-6 mb-8 border border-gray-200">
-      <div className="flex items-start justify-between">
+    <motion.div 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="relative mb-16"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-rcc-blue/20 to-transparent blur-3xl -z-10" />
+      
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{customer.name}</h1>
-          <p className="text-lg text-gray-600 mb-4">{customer.industry}</p>
-          <div className="flex items-center gap-4">
-            <div>
-              <span className="text-sm text-gray-500">Gesamtstatus:</span>
-              <StatusBadge status={customer.overallStatus} className="ml-2" />
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-white rounded-lg shadow-sm">
+              <Building2 className="text-rcc-blue" size={20} />
             </div>
-            <div>
-              <span className="text-sm text-gray-500">Aktuelle Phase:</span>
-              <span className="ml-2 text-sm font-medium text-gray-900">
-                Phase {customer.currentPhase}
-              </span>
+            <span className="text-sm font-bold uppercase tracking-widest text-slate-400">Kunden-Projekt</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black text-rcc-navy tracking-tighter mb-4">
+            {customer.name}
+          </h1>
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="flex items-center gap-2 text-slate-500 font-medium">
+              <MapPin size={18} />
+              {customer.industry}
+            </div>
+            <div className="h-4 w-px bg-slate-200" />
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-slate-400 font-bold uppercase tracking-wider">Status:</span>
+              <StatusBadge status={customer.overallStatus} />
             </div>
           </div>
         </div>
+
+        <div className="glass-card px-8 py-6 rounded-3xl border-white/40">
+          <div className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Aktuelle Phase</div>
+          <div className="text-4xl font-black text-rcc-blue">
+            {customer.currentPhase} <span className="text-lg text-slate-300">/ 3</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -8,7 +8,7 @@ export default function ContactButton({ className = '' }: ContactButtonProps) {
       href="https://r-c-c.ch/termin/"
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center px-4 py-2 bg-rcc-blue-dark text-white rounded-lg hover:bg-blue-700 transition-colors ${className}`}
+      className={`inline-flex items-center px-6 py-3 bg-rcc-navy text-white font-bold rounded-xl hover:bg-rcc-blue transition-all duration-300 shadow-lg hover:shadow-rcc-blue/20 hover:-translate-y-0.5 active:translate-y-0 ${className}`}
     >
       Kontakt aufnehmen
     </a>

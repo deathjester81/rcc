@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
   title: "RCC - Customer Journey",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body className="antialiased">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

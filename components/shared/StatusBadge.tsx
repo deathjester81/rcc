@@ -6,18 +6,18 @@ interface StatusBadgeProps {
 }
 
 export default function StatusBadge({ status, className = '' }: StatusBadgeProps) {
-  const baseClasses = 'px-3 py-1 rounded-full text-sm font-medium';
+  const baseClasses = 'px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm';
   
   const statusClasses = {
-    completed: 'bg-green-100 text-green-800',
-    'in-progress': 'bg-yellow-100 text-yellow-800',
-    available: 'bg-gray-100 text-gray-800',
+    completed: 'bg-green-500 text-white shadow-green-200',
+    'in-progress': 'bg-rcc-blue text-white shadow-blue-200 animate-pulse',
+    available: 'bg-slate-200 text-slate-500',
   };
 
   const statusLabels = {
-    completed: 'Abgeschlossen',
-    'in-progress': 'In Bearbeitung',
-    available: 'Verfügbar',
+    completed: 'Erledigt',
+    'in-progress': 'Aktiv',
+    available: 'Optional',
   };
 
   return (

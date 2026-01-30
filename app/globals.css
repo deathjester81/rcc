@@ -9,8 +9,20 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #E3F2FD;
+  color: #0A1128;
+  background-image: radial-gradient(at 0% 0%, hsla(203, 100%, 98%, 1) 0, transparent 50%), 
+                    radial-gradient(at 100% 100%, hsla(203, 100%, 95%, 1) 0, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-glass transition-all duration-300;
+  }
+  .glass-card-hover {
+    @apply hover:bg-white/80 hover:shadow-glass-hover hover:-translate-y-1;
+  }
 }
 
 @layer utilities {

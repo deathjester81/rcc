@@ -18,10 +18,14 @@ body {
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-glass transition-all duration-300;
+    @apply bg-white/70 backdrop-blur-md border border-white/20 transition-all duration-300;
+    box-shadow: 0 8px 32px 0 rgba(0, 135, 213, 0.1);
   }
   .glass-card-hover {
-    @apply hover:bg-white/80 hover:shadow-glass-hover hover:-translate-y-1;
+    @apply hover:bg-white/80 hover:-translate-y-1;
+  }
+  .glass-card-hover:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 135, 213, 0.2);
   }
 }
 

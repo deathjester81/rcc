@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Phase2Element } from '@/types';
 import { motion } from 'framer-motion';
-import { Board, ListChecks, Users, GraduationCap, ChevronRight } from 'lucide-react';
+import { ClipboardList, ListChecks, Users, GraduationCap, ChevronRight } from 'lucide-react';
 
 interface Phase2DetailsProps {
   elements: Phase2Element[];
@@ -12,7 +12,7 @@ interface Phase2DetailsProps {
 
 const icons = {
   prozessboard: ListChecks,
-  umsetzungssession: Board,
+  umsetzungssession: ClipboardList,
   'kernteam-review': Users,
   gruppencoaching: GraduationCap,
 };
